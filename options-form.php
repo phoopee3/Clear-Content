@@ -117,7 +117,7 @@ jQuery( document ).ready( function() {
                     action: "get_post_ids",
                     post_type: post_type,
                 },
-                url : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+                url : ajaxurl,
                 success: function( data ) {
                     console.log( data );
                     if ( data.success == true && data.data.length ) {
@@ -154,11 +154,11 @@ var processPost = function( post_id, remove_attachments ) {
     jQuery.ajax( {
         type: "POST",
         data: {
-            action: "clear_post",
+            action: "clear_content",
             post_id: post_id,
             remove_attachments: remove_attachments
         },
-        url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+        url: ajaxurl,
         success: function( data ) {
             console.log( data );
             updateProgressBar();
