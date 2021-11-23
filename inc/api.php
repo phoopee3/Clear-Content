@@ -17,7 +17,7 @@ function jhl_cp_clear_content() {
         $result = wp_delete_post( $post_id, true );
 
         echo json_encode( [
-            'success' => ( $data !== false ),
+            'success' => ( $result !== false ),
             'data'    => $post_id,
         ] );
     } else {
@@ -49,7 +49,7 @@ function jhl_cp_get_post_ids() {
             $post_ids = [];
         }
         echo json_encode( [
-            'success' => ( $data !== false ),
+            'success' => true,
             'data' => $post_ids,
         ] );
     } else {
